@@ -2,6 +2,7 @@ import "./index.css"
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer"
 
+
 function App() {
 	return (
 		<div className="App">
@@ -9,10 +10,11 @@ function App() {
 				<NavBar />
 			</header>
 			<main className="container">
-				<ItemListContainer greeting='Buenas buenas... Aquí estará el contenido principal' />
+				
+				<ItemListContainer greeting = 'Buenas buenas... Aquí estará el contenido principal' />
 			</main>
 			<footer>
-				<h1>Pie Footer</h1>
+
 			</footer>
 		</div>
 	);
