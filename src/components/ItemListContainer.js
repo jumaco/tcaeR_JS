@@ -13,10 +13,10 @@ export default ItemListContainer; */
 
 
 export default function ItemListContainer(props) {
-	const [stockear, setStockear] = useState({value: 2});	
+	const [stockear, setStockear] = useState({value: 3});	
 
 	function handleChange(Event) {
-		setStockear({ value: parseInt(Event.target.value) });
+		setStockear({ value: Event.target.value });
 	}
 
 	return (
@@ -24,9 +24,9 @@ export default function ItemListContainer(props) {
 			<h5>{props.greeting}</h5>
 			<label>
 				STOCK:
-				<input type="tel" value={stockear.value} onChange={handleChange} />
+				<input type="number" value={stockear.value} onChange={handleChange} />
 			</label>
-			<ItemCount stockInitial={stockear.value} initial={1} />
+			<ItemCount stockInitial={parseInt(stockear.value)} initial={1} />
 		</>
 	)
 }
