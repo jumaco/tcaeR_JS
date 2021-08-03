@@ -13,10 +13,10 @@ export default ItemListContainer; */
 
 
 export default function ItemListContainer(props) {
-	const [stockear, setStockear] = useState({value: 1});	
+	const [stockear, setStockear] = useState({value: 2});	
 
 	function handleChange(Event) {
-		setStockear({ value: Event.target.value });
+		setStockear({ value: parseInt(Event.target.value) });
 	}
 
 	return (
