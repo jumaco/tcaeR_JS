@@ -1,7 +1,7 @@
 import React from "react";
 import ItemCount from "./ItemCount"
 
-export default function Item({title, description, price, pictureUrl, stock}) {
+export default function Item({id, title, description, price, pictureUrl, stock}) {
 
 	const onAdd = (count) => {
 		console.log(count);
