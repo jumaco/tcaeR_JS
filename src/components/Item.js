@@ -5,8 +5,8 @@ export default function Item({id, title, description, price, pictureUrl, stock})
 
 	const onAdd = (count) => {
 		console.log(count);
-
 	}
+	
 	return (
 		<div className="col mb-4">
 			<div className="card h-100">

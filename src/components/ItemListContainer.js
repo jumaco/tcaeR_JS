@@ -22,7 +22,7 @@ const productos = [
 	{
 		id: 2,
 		title: "Producto 2",
-		description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
+		description: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classNameical Latin literature from 45 BC, making it over 2000 years old.",
 		price: 3582,
 		pictureUrl: img8,
 		stock: 4
@@ -65,18 +65,34 @@ export default function ItemListContainer(props) {
 
 	const [datos, setDatos] = useState([])
 
-	useEffect(() => {
+	const getProductos = () => {
 		new Promise((resolve, reject) => {
 			setTimeout(() => resolve(productos), 2000);
 		})
 			.then((algo) => setDatos(algo))
+	}
 
+	useEffect(() => {
+		getProductos();
 	}, []);
-	console.log('datos', datos)
+
+
 	return (
-		<>
+		<main className="container">
 			<h1>{props.greeting}</h1>
-			<ItemList productos={datos} />
-		</>
+
+			{datos.length > 0 ? (
+				<ItemList productos={datos} />
+			) : (
+				<div className="d-flex justify-content-center">
+					<div className="spinner-border text-success" role="status">
+						<span className="sr-only">Loading...</span>
+					</div>
+				</div>
+			)}
+
+
+			{/* <ItemList productos={datos} /> */}
+		</main>
 	)
 }

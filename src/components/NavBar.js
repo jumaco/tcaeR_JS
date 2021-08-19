@@ -3,6 +3,8 @@ import { FaHome, FaListUl, FaAt } from 'react-icons/fa';
 import { FcShop } from 'react-icons/fc'
 import { SiAwesomelists } from 'react-icons/si'
 
+import { Link } from "react-router-dom";
+
 
 function NavBar() {
 	return (
@@ -14,10 +16,14 @@ function NavBar() {
 			<div className="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul className="navbar-nav mr-auto">
 					<li className="nav-item">
-						<a className="nav-link" href="/">
+
+						<Link className="nav-link" to="/home">
+
 							<FaHome /> Home
 							<span className="sr-only">(current)</span>
-						</a>
+
+						</Link>
+
 					</li>
 					<li className="nav-item dropdown">
 						<a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,9 +36,13 @@ function NavBar() {
 							<a className="dropdown-item" href="/">Populares</a>
 						</div>
 					</li>
+
 					<li className="nav-item">
-						<a className="nav-link" href="/"><FaAt /> Contacto</a>
+						<Link className="nav-link" to="/contacto">
+							<FaAt /> Contacto
+						</Link>
 					</li>
+
 					<li className="nav-item">
 						<a className="nav-link" href="/"><SiAwesomelists /> Acerca de...</a>
 					</li>
