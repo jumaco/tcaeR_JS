@@ -5,11 +5,17 @@ import { SiAwesomelists } from 'react-icons/si'
 
 import { Link } from "react-router-dom";
 
+import CategoriesLink from "./categoriesLink"
+
 
 function NavBar() {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-light">
-			<a className="navbar-brand" href="/" ><FcShop style={{ fontSize: "3rem" }}></FcShop></a>
+
+			<Link className="navbar-brand" to="/">
+				<FcShop style={{ fontSize: "3rem" }}></FcShop>
+			</Link>
+
 			<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span className="navbar-toggler-icon"></span>
 			</button>
@@ -17,11 +23,10 @@ function NavBar() {
 				<ul className="navbar-nav mr-auto">
 					<li className="nav-item">
 
-						<Link className="nav-link" to="/home">
-
-							<FaHome /> Home
+						<Link className="nav-link" to="/">
+							<FaHome />
+							Home
 							<span className="sr-only">(current)</span>
-
 						</Link>
 
 					</li>
@@ -29,12 +34,11 @@ function NavBar() {
 						<a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<FaListUl /> Categorías
 						</a>
+
 						<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a className="dropdown-item" href="/">Cat 1</a>
-							<a className="dropdown-item" href="/">Cat 2</a>
-							<div className="dropdown-divider"></div>
-							<a className="dropdown-item" href="/">Populares</a>
+							<CategoriesLink />
 						</div>
+
 					</li>
 
 					<li className="nav-item">
@@ -44,7 +48,9 @@ function NavBar() {
 					</li>
 
 					<li className="nav-item">
-						<a className="nav-link" href="/"><SiAwesomelists /> Acerca de...</a>
+						<Link className="nav-link" to="/acerca_de">
+							<SiAwesomelists /> Acerca de...
+						</Link>
 					</li>
 				</ul>
 				<CartWidget />

@@ -14,19 +14,22 @@ function App() {
 	return (
 
 		<BrowserRouter>
+
 			<NavBar />
+		
 			<Switch>
-				<Route exact path="/home">
+				<Route exact path="/">
 					<ItemListContainer />
 				</Route>
-				<Route exact path="/contacto">
+				<Route exact path="/detail/:id">
 					<ItemDetailContainer />
 				</Route>
-				{/* <Route exact path="/characters-detail/:loquesea/:id">
-					<CharacterDetail />
+				
+				<Route exact path="/categories/:categoryId">
+					<ItemListContainer />
 				</Route>
 
-				<Route exact path="/episodes">
+				{/* <Route exact path="/episodes">
 					<Episodes />
 				</Route> */}
 			</Switch>
