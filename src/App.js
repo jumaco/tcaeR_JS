@@ -12,7 +12,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
 	return (
-
 		<BrowserRouter>
 
 			<NavBar />
@@ -29,9 +28,9 @@ function App() {
 					<ItemListContainer />
 				</Route>
 
-				{/* <Route exact path="/episodes">
-					<Episodes />
-				</Route> */}
+				<Route exact path="/cart">
+					
+				</Route>
 			</Switch>
 		</BrowserRouter>
 	);

@@ -1,13 +1,9 @@
 import React from "react";
-import ItemCount from "./ItemCount"
+
 import { Link } from "react-router-dom";
 
 export default function Item({ id, title, description, price, pictureUrl, stock }) {
 
-	const onAdd = (count) => {
-		console.log(count);
-	}
-	
 	return (
 		<div className="col mb-4">
 			<div className="card h-100">
@@ -18,9 +14,12 @@ export default function Item({ id, title, description, price, pictureUrl, stock 
 					<h5 className="card-title">{title}<span> ${price}</span></h5>
 					<p className="card-text">{description}</p>
 				</div>
-				<ItemCount stock={stock} initial={1} onAdd={onAdd} />
+				<div className="card-footer text-center">
+					<Link type="button" className="btn btn-primary m-2" to={`/detail/${id}`}>
+						Ver Producto
+					</Link>
+				</div>
 			</div>
-
 		</div>
 	)
 }

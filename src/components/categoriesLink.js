@@ -3,14 +3,17 @@ import { productos } from "../auxs/products"
 import { Link } from "react-router-dom"
 
 
+const getCategories = (productos) => {
+    const categories = productos.map(producto => producto.category)
+    return [...new Set(categories)]
+}
+
 export default function CategoriesLink() {
     return (
         <>
-            {console.log(productos.filter((producto) => producto.category))}
-            {productos.filter((producto) => producto.category).map((producto) => (
-                <Link className="dropdown-item" to={`/categories/${producto.category}`}>{producto.category} key={producto.category}</Link>
+            {getCategories(productos).map((category) => (
+                <Link className="dropdown-item" to={`/categories/${category}`} key={category}>{category}</Link>
             ))}
         </>
-
     )
 }

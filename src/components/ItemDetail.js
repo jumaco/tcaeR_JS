@@ -3,8 +3,8 @@ import ItemCount from './ItemCount';
 
 export default function ItemDetail({ id, title, description, price, pictureUrl, stock }) {
 
-    const onAdd = (count) => {
-        console.log(count);
+    const onAdd = (count, producto) => {
+        console.log('Agregado al carro',count, 'del producto', producto);
     }
 
     const style = {
@@ -20,7 +20,7 @@ export default function ItemDetail({ id, title, description, price, pictureUrl, 
                     <h5 className="card-title">${price}</h5>
                     <p className="card-text">{description}</p>
                 </div>
-                <ItemCount stock={stock} initial={1} onAdd={onAdd} />
+                <ItemCount id={id} stock={stock} initial={1} onAdd={onAdd} producto={{ id, title, price, pictureUrl }} />
             </div>
         </div>
     );

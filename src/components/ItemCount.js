@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function ItemCount({ stock, initial, onAdd }) {
+export default function ItemCount({ stock, initial, onAdd, producto }) {
 	const [count, setCount] = useState(initial);
 	return (
 		<div className="card-footer text-center">
@@ -9,7 +9,10 @@ export default function ItemCount({ stock, initial, onAdd }) {
 				<h4><span className=" px-3">{count}</span></h4>
 				<button type="button" className="btn btn-primary px-2" disabled={count === stock} onClick={() => count < stock && setCount(count + 1)}>+</button>
 			</div>
-			<button type="button" className="btn btn-primary m-2" disabled={count === 0} onClick={(e) => { e.preventDefault(); onAdd(count) }}>Agregar al carro</button>
+			
+				<button type="button" className="btn btn-primary m-2" disabled={count === 0} onClick={(e) => { e.preventDefault(); onAdd(count, producto) }}>Agregar al carro</button>
+			
+
 		</div>
 	);
 }

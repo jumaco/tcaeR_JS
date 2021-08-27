@@ -5,7 +5,7 @@ import { SiAwesomelists } from 'react-icons/si'
 
 import { Link } from "react-router-dom";
 
-import CategoriesLink from "./categoriesLink"
+import CategoriesLink from "./CategoriesLink"
 
 
 function NavBar() {
