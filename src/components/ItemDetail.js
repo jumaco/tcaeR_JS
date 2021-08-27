@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ItemCount from './ItemCount';
 
+
 export default function ItemDetail({ id, title, description, price, pictureUrl, stock }) {
+    const [count, setCount] = useState(1);
+
+    function setContador(valor) {
+        setCount(valor);
+    }
 
     const onAdd = (count, producto) => {
-        console.log('Agregado al carro',count, 'del producto', producto);
+        console.log('Agregado al carro', count, 'del producto', producto);
     }
 
     const style = {
@@ -20,7 +26,7 @@ export default function ItemDetail({ id, title, description, price, pictureUrl, 
                     <h5 className="card-title">${price}</h5>
                     <p className="card-text">{description}</p>
                 </div>
-                <ItemCount id={id} stock={stock} initial={1} onAdd={onAdd} producto={{ id, title, price, pictureUrl }} />
+                <ItemCount id={id} stock={stock} count={count} setCount={setContador} onAdd={onAdd} producto={{ id, title, price, pictureUrl }} />
             </div>
         </div>
     );
