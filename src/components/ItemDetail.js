@@ -18,17 +18,19 @@ export default function ItemDetail({ id, title, description, price, pictureUrl, 
     }
 
     return (
-        <div className="">
-            <div className="card" style={style}>
-                <img src={pictureUrl} className="card-img-top" alt={title} />
+        <>
+            <div className="card">
+                <img src={pictureUrl} className="card-img-top p-4" alt={title} />
+
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
                     <h5 className="card-title">${price}</h5>
                     <p className="card-text">{description}</p>
                 </div>
-                <ItemCount id={id} stock={stock} count={count} setCount={setContador} onAdd={onAdd} producto={{ id, title, price, pictureUrl }} />
+
             </div>
-        </div>
+            <ItemCount id={id} stock={stock} count={count} setCount={setContador} onAdd={onAdd} producto={{ id, title, price, pictureUrl }} />
+        </>
     );
 
 }

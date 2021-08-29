@@ -13,8 +13,6 @@ export default function ItemDetailContainer() {
     const { id } = useParams();
     console.log('paramsId', id)
 
-    
-
     const getItem = () => {
         setLoading(true);
 
@@ -47,10 +45,6 @@ export default function ItemDetailContainer() {
     }
 
     return (
-        <main className="container">
-
-            <ItemDetail {...item[0]} key={item.id} />
-
-        </main>
+        <ItemDetail {...item[0]} key={item.id} />
     );
 }

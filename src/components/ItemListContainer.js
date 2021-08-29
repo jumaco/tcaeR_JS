@@ -6,7 +6,7 @@ import ItemList from './ItemList';
 import { productos } from '../auxs/products';
 
 
-export default function ItemListContainer(props) {
+export default function ItemListContainer() {
 	const [datos, setDatos] = useState([])
 	const [loading, setLoading] = useState(false);
 
@@ -42,7 +42,7 @@ export default function ItemListContainer(props) {
 
 	if (loading) {
 		return (
-			<div className="d-flex justify-content-center">
+			<div className="d-flex justify-content-center m-3 p-3">
 				<div className="spinner-border text-success" role="status">
 					<span className="sr-only">Loading...</span>
 				</div>
@@ -50,23 +50,7 @@ export default function ItemListContainer(props) {
 		);
 	}
 
-
 	return (
-		<main className="container">
-			<h1>{props.greeting}</h1>
-
-			{datos.length > 0 ? (
-				<ItemList productos={datos} />
-			) : (
-				<div className="d-flex justify-content-center">
-					<div className="spinner-border text-success" role="status">
-						<span className="sr-only">Loading...</span>
-					</div>
-				</div>
-			)}
-
-
-			{/* <ItemList productos={datos} /> */}
-		</main>
+		<ItemList productos={datos} />
 	)
 }

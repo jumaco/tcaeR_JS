@@ -53,7 +53,13 @@ function NavBar() {
 						</Link>
 					</li>
 				</ul>
-				<CartWidget />
+
+				<li className="navbar-nav nav-item">
+					<Link className="nav-link" to="/cart">
+						<CartWidget />
+					</Link>
+				</li>
+
 			</div>
 		</nav>
 	);
