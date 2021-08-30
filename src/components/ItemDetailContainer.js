@@ -11,7 +11,6 @@ export default function ItemDetailContainer() {
     const [loading, setLoading] = useState(false);
 
     const { id } = useParams();
-    console.log('paramsId', id)
 
     const getItem = () => {
         setLoading(true);
@@ -25,14 +24,9 @@ export default function ItemDetailContainer() {
             })
     }
 
-
     useEffect(() => {
         getItem();
     }, []);
-
-    console.log("loading", loading)
-    console.log("itemDetail", item)
-
 
     if (loading) {
         return (

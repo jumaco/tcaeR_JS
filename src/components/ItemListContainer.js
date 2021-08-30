@@ -11,7 +11,6 @@ export default function ItemListContainer() {
 	const [loading, setLoading] = useState(false);
 
 	const { categoryId } = useParams()
-	console.log('categoryParams', categoryId)
 
 	const getProductos = () => {
 		setLoading(true);
@@ -23,7 +22,6 @@ export default function ItemListContainer() {
 				.finally(() => {
 					setLoading(false);
 				})
-
 		} else {
 			new Promise((resolve, reject) => {
 				setTimeout(() => resolve(productos.filter((producto) => producto.category === categoryId)), 2000);
@@ -38,7 +36,6 @@ export default function ItemListContainer() {
 	useEffect(() => {
 		getProductos();
 	}, [categoryId]);
-
 
 	if (loading) {
 		return (
