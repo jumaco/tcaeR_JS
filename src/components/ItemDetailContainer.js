@@ -12,7 +12,11 @@ export default function ItemDetailContainer() {
 
     const { id } = useParams();
 
-    const getItem = () => {
+    // const getItem = () => {
+        
+    // }
+
+    useEffect(() => {
         setLoading(true);
 
         new Promise((resolve, reject) => {
@@ -22,11 +26,7 @@ export default function ItemDetailContainer() {
             .finally(() => {
                 setLoading(false);
             })
-    }
-
-    useEffect(() => {
-        getItem();
-    }, []);
+    }, [id]);
 
     if (loading) {
         return (

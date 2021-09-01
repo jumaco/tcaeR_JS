@@ -7,9 +7,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
-import Contact from "./Contact";
-import AcercaDe from "./AcercaDe";
-import Cart from "./Cart";
+import Contact from "./components/Contact";
+import AcercaDe from "./components/AcercaDe";
+import Cart from "./components/Cart";
 
 
 function App() {
@@ -17,9 +17,9 @@ function App() {
 		<BrowserRouter>
 
 			<NavBar />
+			<main className="container my-3">
+				<Switch>
 
-			<Switch>
-				<main className="container my-3">
 					<Route exact path="/">
 						<ItemListContainer />
 					</Route>
@@ -43,9 +43,9 @@ function App() {
 					<Route exact path="/cart">
 						<Cart />
 					</Route>
-				</main>
 
-			</Switch>
+				</Switch>
+			</main>
 		</BrowserRouter>
 	);
 
