@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom';
+import carritoContext from '../context/CartContext';
 
 
 export default function ItemDetail({ id, title, description, price, pictureUrl, stock }) {
     const [count, setCount] = useState(1);
-    const [carro, setCarro] = useState([])
+    const {carrito, setCarrito} = useContext(carritoContext)
+    
+    console.log({carrito, setCarrito})
+
+    console.log('carrito previo', carrito)
 
     function setContador(valor) {
         setCount(valor);
@@ -13,7 +18,10 @@ export default function ItemDetail({ id, title, description, price, pictureUrl, 
 
     const onAdd = (count, producto) => {
         let productoAdd = [{ count, producto }];
-        setCarro(productoAdd);
+        let carritoBorrador = [...carrito];
+        carritoBorrador.push(productoAdd)
+        setCarrito(carritoBorrador);
+        console.log('carrito actualizado', carrito)
     }
 
     const style = {
@@ -31,7 +39,7 @@ export default function ItemDetail({ id, title, description, price, pictureUrl, 
                 </div>
             </div>
 
-            {carro.length > 0 ? (
+            {carrito.length > 0 ? (
                 <div className="card-footer text-center">
                     <Link type="button" className="btn btn-primary m-2" to="/cart" >Terminar compra</Link>
                 </div>

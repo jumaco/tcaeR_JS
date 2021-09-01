@@ -10,12 +10,13 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import Contact from "./components/Contact";
 import AcercaDe from "./components/AcercaDe";
 import Cart from "./components/Cart";
+import { CarritoProvider } from "./context/CartContext";
 
 
 function App() {
 	return (
 		<BrowserRouter>
-
+			<CarritoProvider>
 			<NavBar />
 			<main className="container my-3">
 				<Switch>
@@ -46,6 +47,7 @@ function App() {
 
 				</Switch>
 			</main>
+			</CarritoProvider>
 		</BrowserRouter>
 	);
 
