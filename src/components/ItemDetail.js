@@ -6,9 +6,7 @@ import carritoContext from '../context/CartContext';
 
 export default function ItemDetail({ id, title, description, price, pictureUrl, stock }) {
     const [count, setCount] = useState(1);
-    const {carrito, setCarrito} = useContext(carritoContext)
-    
-    console.log({carrito, setCarrito})
+    const { carrito, addItem } = useContext(carritoContext)
 
     console.log('carrito previo', carrito)
 
@@ -17,11 +15,13 @@ export default function ItemDetail({ id, title, description, price, pictureUrl, 
     }
 
     const onAdd = (count, producto) => {
-        let productoAdd = [{ count, producto }];
-        let carritoBorrador = [...carrito];
-        carritoBorrador.push(productoAdd)
-        setCarrito(carritoBorrador);
-        console.log('carrito actualizado', carrito)
+        addItem(count, producto)
+
+        // let productoAdd = [{ count, producto }];
+        // let carritoBorrador = [...carrito];
+        // carritoBorrador.push(productoAdd)
+        // setCarrito(carritoBorrador);
+        // console.log('producto agregado', carrito)
     }
 
     const style = {

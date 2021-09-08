@@ -6,9 +6,16 @@ import { SiAwesomelists } from 'react-icons/si'
 import { Link } from "react-router-dom";
 
 import CategoriesLink from "./CategoriesLink"
+import carritoContext from "../context/CartContext";
+import { useContext } from "react";
+
 
 
 function NavBar() {
+	const { carrito } = useContext(carritoContext)
+
+	console.log(carrito.lenght)
+
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-light">
 
@@ -31,9 +38,9 @@ function NavBar() {
 
 					</li>
 					<li className="nav-item dropdown">
-						<a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<Link className="nav-link dropdown-toggle"  to="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<FaListUl /> Categorías
-						</a>
+						</Link>
 
 						<div className="dropdown-menu" aria-labelledby="navbarDropdown">
 							<CategoriesLink />
@@ -54,9 +61,13 @@ function NavBar() {
 					</li>
 				</ul>
 
+
+
+				{carrito.lenght && "hola"}
+
 				<li className="navbar-nav nav-item">
 					<Link className="nav-link" to="/cart">
-						<CartWidget />
+						<CartWidget itemsEnCarrito={carrito.lenght} />
 					</Link>
 				</li>
 
