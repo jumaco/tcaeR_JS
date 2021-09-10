@@ -8,13 +8,11 @@ export default function ItemDetail({ id, title, description, price, pictureUrl, 
     const [count, setCount] = useState(1);
     const { carrito, addItem } = useContext(carritoContext)
 
-    console.log('carrito previo', carrito)
-
     function setContador(valor) {
         setCount(valor);
     }
 
-    const onAdd = (count, producto) => {
+    const onAdd = (producto, count) => {
         addItem(count, producto)
 
         // let productoAdd = [{ count, producto }];
@@ -41,6 +39,7 @@ export default function ItemDetail({ id, title, description, price, pictureUrl, 
 
             {carrito.length > 0 ? (
                 <div className="card-footer text-center">
+                    <ItemCount id={id} stock={stock} count={count} setCount={setContador} onAdd={onAdd} producto={{ id, title, price, pictureUrl }} />
                     <Link type="button" className="btn btn-primary m-2" to="/cart" >Terminar compra</Link>
                 </div>
             ) : (

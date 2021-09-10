@@ -11,10 +11,11 @@ import { useContext } from "react";
 
 
 
+
 function NavBar() {
 	const { carrito } = useContext(carritoContext)
 
-	console.log(carrito.lenght)
+	console.log(carrito.length)
 
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -38,7 +39,7 @@ function NavBar() {
 
 					</li>
 					<li className="nav-item dropdown">
-						<Link className="nav-link dropdown-toggle"  to="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<Link className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<FaListUl /> Categorías
 						</Link>
 
@@ -63,10 +64,13 @@ function NavBar() {
 
 
 
-				{carrito.lenght && "hola"}
+				
 
 				<li className="navbar-nav nav-item">
 					<Link className="nav-link" to="/cart">
+
+						{carrito.length > 0 && <span class="badge badge-secondary">{carrito.length}</span>}
+
 						<CartWidget itemsEnCarrito={carrito.lenght} />
 					</Link>
 				</li>

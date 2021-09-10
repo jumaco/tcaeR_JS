@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-export default function ItemCart({ id, title, description, price, pictureUrl, count }) {
+export default function ItemCart({ id, title, description, price, pictureUrl, quantity }) {
 
     return (
         <div className="col mb-4">
@@ -15,7 +15,7 @@ export default function ItemCart({ id, title, description, price, pictureUrl, co
                     <p className="card-text">{description}</p>
                 </div>
                 <div className="card-footer text-center">
-                    <p className="card-text">{count} Unidad/es</p>
+                    <p className="card-text">{quantity} Unidad/es</p>
                 </div>
             </div>
         </div>

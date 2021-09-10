@@ -6,6 +6,8 @@ import ItemDetail from "./ItemDetail";
 import { productos } from '../auxs/products';
 
 
+
+
 export default function ItemDetailContainer() {
     const [item, setItem] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -20,7 +22,7 @@ export default function ItemDetailContainer() {
         setLoading(true);
 
         new Promise((resolve, reject) => {
-            setTimeout(() => resolve(productos.filter((item) => item.id === id)), 2000);
+            setTimeout(() => resolve(productos.filter((item) => item.id === id)), 1000);
         })
             .then((algo) => setItem(algo))
             .finally(() => {
