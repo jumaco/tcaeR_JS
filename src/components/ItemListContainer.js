@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-// import { collection, getDocs, query, where } from 'firebase/firestore';
+import { getDocs, query, where } from 'firebase/firestore';
 
 import ItemList from './ItemList';
 
-import { productos } from '../auxs/products';
 import carritoContext from '../context/CartContext';
+import { productosCollection } from '../firebase';
 
 
 export default function ItemListContainer() {
@@ -15,54 +15,62 @@ export default function ItemListContainer() {
 
 	const { categoryId } = useParams()
 
-	// const getProductos = () => {
-
-	// };
-
 	useEffect(() => {
 
 		cartSession()
-
+		
 		setLoading(true);
 
-		// const getProductos = async () => {
-		// 	// 3 obtener colleccion
-		// 	const pproductosCollection = collection(getData(), 'productos');
+		const getProductos = async () => {
 
-		// 	// 4 obtener Snapshot (foto de la lista en ese momento)
-		// 	const productosSnapshot = await getDocs(productosCollection);
+			const productosSnapshot = await getDocs(productosCollection());
+			const productosList = productosSnapshot.docs.map(doc => ({
+				id: doc.id,
+				...doc.data()
+			}));
 
-		// 	// 5 obtener datos en forma de json con data()
-		// 	const productosList = productosSnapshot.docs.map(doc => ({
-		// 		id: doc.id,
-		// 		...doc.data()
-		// 	}));
+			setDatos(productosList);
+			setLoading(false);
+		};
 
-		// 	// 6 setear el estado con la lista
-		// 	console.log(poductosList);
-		// 	setPets(poductosList);
-		// };
+		const getCategories = async () => {
+
+			const q = query(productosCollection(), where("category", "==", categoryId));
+
+			const productosCategorySnapshot = await getDocs(q);
+			const productosCategory = productosCategorySnapshot.docs.map(doc => ({
+				id: doc.id,
+				...doc.data()
+			}));
+
+			setDatos(productosCategory);
+			setLoading(false);
+		};
 
 		if (categoryId === undefined) {
 
-			
+			getProductos()
 
-			new Promise((resolve, reject) => {
-				setTimeout(() => resolve(productos), 1000);
-			})
-				.then((algo) => setDatos(algo))
-				.finally(() => {
-					setLoading(false);
-				})
+			// new Promise((resolve, reject) => {
+			// 	setTimeout(() => resolve(productos), 1000);
+			// })
+			// 	.then((algo) => setDatos(algo))
+			// 	.finally(() => {
+			// 		setLoading(false);
+			// 	})
 
 		} else {
-			new Promise((resolve, reject) => {
-				setTimeout(() => resolve(productos.filter((producto) => producto.category === categoryId)), 1000);
-			})
-				.then((algo) => setDatos(algo))
-				.finally(() => {
-					setLoading(false);
-				})
+
+			getCategories()
+
+
+			// new Promise((resolve, reject) => {
+			// 	setTimeout(() => resolve(productos.filter((producto) => producto.category === categoryId)), 1000);
+			// })
+			// 	.then((algo) => setDatos(algo))
+			// 	.finally(() => {
+			// 		setLoading(false);
+			// 	})
 		}
 	}, [categoryId]);
 
@@ -74,9 +82,9 @@ export default function ItemListContainer() {
 				</div>
 			</div>
 		);
-	}
+	};
 
 	return (
 		<ItemList productos={datos} />
-	)
+	);
 }

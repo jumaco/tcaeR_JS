@@ -15,7 +15,7 @@ export const productos = [
 		price: 20600,
 		pictureUrl: img7,
 		stock: 8,
-		category: "categoría-1"
+		category: "Categoria-1"
 	},
 	{
 		id: "2",
@@ -24,7 +24,7 @@ export const productos = [
 		price: 3582,
 		pictureUrl: img8,
 		stock: 4,
-		category: "categoría-2"
+		category: "Categoria-2"
 	},
 	{
 		id: "3",
@@ -33,7 +33,7 @@ export const productos = [
 		price: 985,
 		pictureUrl: img3,
 		stock: 6,
-		category: "categoría-3"
+		category: "Categoria-3"
 	},
 	{
 		id: "4",
@@ -42,7 +42,7 @@ export const productos = [
 		price: 159587,
 		pictureUrl: img4,
 		stock: 3,
-		category: "categoría-1"
+		category: "Categoria-1"
 	},
 	{
 		id: "5",
@@ -51,7 +51,7 @@ export const productos = [
 		price: 4799,
 		pictureUrl: img5,
 		stock: 10,
-		category: "categoría-2"
+		category: "Categoria-2"
 	},
 	{
 		id: "6",
@@ -60,6 +60,6 @@ export const productos = [
 		price: 6299,
 		pictureUrl: img6,
 		stock: 7,
-		category: "categoría-3"
+		category: "Categoria-3"
 	}
 ];

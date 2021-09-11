@@ -3,8 +3,8 @@ import { useParams } from 'react-router';
 
 import ItemDetail from "./ItemDetail";
 
-import { productos } from '../auxs/products';
-
+import { productosCollection } from '../firebase';
+import { getDocs } from 'firebase/firestore';
 
 
 
@@ -14,20 +14,30 @@ export default function ItemDetailContainer() {
 
     const { id } = useParams();
 
+    // const [datos, setDatos] = useState([])
+
     // const getItem = () => {
-        
+
     // }
 
     useEffect(() => {
         setLoading(true);
 
-        new Promise((resolve, reject) => {
-            setTimeout(() => resolve(productos.filter((item) => item.id === id)), 1000);
-        })
-            .then((algo) => setItem(algo))
-            .finally(() => {
-                setLoading(false);
-            })
+        const getProductos = async () => {
+            
+            const productosSnapshot = await getDocs(productosCollection());
+            const productosList = productosSnapshot.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+
+            console.log(productosList);
+            setItem(productosList.filter((item) => item.id === id));
+            setLoading(false);
+        };
+
+        getProductos()
+
     }, [id]);
 
     if (loading) {

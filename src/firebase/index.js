@@ -1,7 +1,4 @@
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore, collection } from 'firebase/firestore';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -10,17 +7,18 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBkE1-utFwgu7TocTqh-eE0pboWruCN1u0",
-  authDomain: "tcaerjs.firebaseapp.com",
-  projectId: "tcaerjs",
-  storageBucket: "tcaerjs.appspot.com",
-  messagingSenderId: "921572893225",
-  appId: "1:921572893225:web:dd45dc96ecad9e40147238"
+  apiKey: "AIzaSyBZuTVzIGByQMzlftakShNfeATGNazc7dw",
+  authDomain: "tcaerjs-c6a2f.firebaseapp.com",
+  projectId: "tcaerjs-c6a2f",
+  storageBucket: "tcaerjs-c6a2f.appspot.com",
+  messagingSenderId: "1025191596029",
+  appId: "1:1025191596029:web:2778c6244ea0a5f29fd394"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-  
-  // getData devuelve la conexion con firestore a mi app
-  export const getData = () => getFirestore(app);
-  
+
+// getData devuelve la conexion con firestore a mi app
+export const getData = () => getFirestore(app);
+
+export const productosCollection = () => collection(getData(), 'productos');
