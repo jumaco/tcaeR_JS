@@ -14,12 +14,6 @@ export default function ItemDetail({ id, title, description, price, pictureUrl, 
 
     const onAdd = (producto, count) => {
         addItem(count, producto)
-
-        // let productoAdd = [{ count, producto }];
-        // let carritoBorrador = [...carrito];
-        // carritoBorrador.push(productoAdd)
-        // setCarrito(carritoBorrador);
-        // console.log('producto agregado', carrito)
     }
 
     const style = {
@@ -41,6 +35,7 @@ export default function ItemDetail({ id, title, description, price, pictureUrl, 
                 <div className="card-footer text-center">
                     <ItemCount id={id} stock={stock} count={count} setCount={setContador} onAdd={onAdd} producto={{ id, title, price, pictureUrl }} />
                     <Link type="button" className="btn btn-primary m-2" to="/cart" >Terminar compra</Link>
+                    <Link className="btn btn-primary " to="/" role="button">Volver al Inicio</Link>
                 </div>
             ) : (
                 <ItemCount id={id} stock={stock} count={count} setCount={setContador} onAdd={onAdd} producto={{ id, title, price, pictureUrl }} />

@@ -14,24 +14,16 @@ export default function ItemDetailContainer() {
 
     const { id } = useParams();
 
-    // const [datos, setDatos] = useState([])
-
-    // const getItem = () => {
-
-    // }
 
     useEffect(() => {
         setLoading(true);
 
         const getProductos = async () => {
-            
             const productosSnapshot = await getDocs(productosCollection());
             const productosList = productosSnapshot.docs.map(doc => ({
                 id: doc.id,
                 ...doc.data()
             }));
-
-            console.log(productosList);
             setItem(productosList.filter((item) => item.id === id));
             setLoading(false);
         };

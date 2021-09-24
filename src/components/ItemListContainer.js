@@ -18,7 +18,7 @@ export default function ItemListContainer() {
 	useEffect(() => {
 
 		cartSession()
-		
+
 		setLoading(true);
 
 		const getProductos = async () => {
@@ -48,30 +48,11 @@ export default function ItemListContainer() {
 		};
 
 		if (categoryId === undefined) {
-
 			getProductos()
-
-			// new Promise((resolve, reject) => {
-			// 	setTimeout(() => resolve(productos), 1000);
-			// })
-			// 	.then((algo) => setDatos(algo))
-			// 	.finally(() => {
-			// 		setLoading(false);
-			// 	})
-
 		} else {
-
 			getCategories()
-
-
-			// new Promise((resolve, reject) => {
-			// 	setTimeout(() => resolve(productos.filter((producto) => producto.category === categoryId)), 1000);
-			// })
-			// 	.then((algo) => setDatos(algo))
-			// 	.finally(() => {
-			// 		setLoading(false);
-			// 	})
 		}
+		// eslint-disable-next-line
 	}, [categoryId]);
 
 	if (loading) {

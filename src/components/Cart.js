@@ -2,20 +2,24 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import carritoContext from "../context/CartContext";
 import ItemCart from "./ItemCart";
+import Buyer from "./Buyer";
 
 export default function Cart() {
-    const { carrito } = useContext(carritoContext);
+    const { carrito, clear, price } = useContext(carritoContext);
     return (
         <>
             {carrito.length > 0 && (
                 <div className="jumbotron">
                     <h1 className="display-4">Carrito de compras</h1>
-                    <p className="lead">Aqui tus productos</p>
+                    <p className="lead">El total de tu carrito es de: ${price()}</p>
+                    <button className="btn btn-danger" onClick={(e) => { e.preventDefault(); clear() }}>Vaciar Carrito</button>
                     <hr className="my-4" />
 
                     {carrito.map((item) => (
                         <ItemCart {...item} key={item.id}></ItemCart>
                     ))}
+
+                    <Buyer />
 
                 </div>
             )}
