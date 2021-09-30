@@ -11,6 +11,7 @@ import Contact from "./components/Contact";
 import AcercaDe from "./components/AcercaDe";
 import Cart from "./components/Cart";
 import { CarritoProvider } from "./context/CartContext";
+import Success from "./components/Success";
 
 
 function App() {
@@ -43,6 +44,10 @@ function App() {
 
 					<Route exact path="/cart">
 						<Cart />
+					</Route>
+
+					<Route exact path="/success">
+						<Success />
 					</Route>
 
 				</Switch>

@@ -1,4 +1,4 @@
-import React, { useState, createContext} from "react";
+import React, { useState, createContext } from "react";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { db } from "../firebase";
 
@@ -7,6 +7,7 @@ const carritoContext = createContext({});
 export const CarritoProvider = ({ children }) => {
     const [carrito, setCarrito] = useState([])
     const [buyer, setBuyer] = useState({})
+    const [idOrden, setIdOrden] = useState('')
 
     const sessionCart = JSON.parse(localStorage.getItem('sessionCart'))
 
@@ -26,12 +27,12 @@ export const CarritoProvider = ({ children }) => {
 
     const userInfo = (nombre, apellido, mail, telefono) => {
         const user =
-            {
-                nombre,
-                apellido,
-                mail,
-                telefono
-            }
+        {
+            nombre,
+            apellido,
+            mail,
+            telefono
+        }
         setBuyer(user)
     };
 
@@ -48,8 +49,10 @@ export const CarritoProvider = ({ children }) => {
             items,
             date,
             total,
-        }).finally(clear(), console.log("FIN"));
-
+        }).then(({ id }) => {
+            setIdOrden(id) //SUCCESS
+        }).finally(clear())
+            .finally(console.log('FIN'))
     }
 
 
@@ -110,7 +113,7 @@ export const CarritoProvider = ({ children }) => {
     }
 
     return (
-        <carritoContext.Provider value={{ carrito, cartSession, addItem, removeItem, clear, userInfo, price, finalizar }}>
+        <carritoContext.Provider value={{ carrito, cartSession, addItem, removeItem, clear, userInfo, price, finalizar, idOrden }}>
             {children}
         </carritoContext.Provider>
     )

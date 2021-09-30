@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import carritoContext from '../context/CartContext';
 
 
@@ -70,12 +71,13 @@ export default function Buyer() {
             )}
 
             {confirmar && (
-                <button
-                    onClick={(e) => { e.preventDefault(); finalizar() }}
+                <Link
+                    onClick={(e) => { finalizar() }}
                     className="btn btn-success"
-                    type="submit">
+                    to='/success'
+                >
                     Realizar Compra
-                </button>
+                </Link>
             )}
 
         </form>
