@@ -1,6 +1,6 @@
 # E-commerce Proyecto React
 
-Puede visitarlo online [aquí](https://github.com/facebook/create-react-app).
+Puede visitarlo online [aquí](https://jumaco.github.io/tcaeR_JS/).
 
 ## Scripts diponibles
 
