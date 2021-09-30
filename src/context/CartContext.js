@@ -80,17 +80,6 @@ export const CarritoProvider = ({ children }) => {
 
     };
 
-    // //subtractItem(itemId)
-    // const subtractItem = (item) =>{
-    //     const carritoDraft = [...carrito];
-    //     const isInCart = carritoDraft.find(producto => producto.id === item.id);
-    //     let subtotal = item.price * quantity
-    //     isInCart.quantity -= 1;
-    //     isInCart.subtotal += subtotal
-
-
-    // }
-
     // removeItem(itemId) 
     const removeItem = (itemId) => {
         const carritoDraft = [...carrito];

@@ -37,7 +37,7 @@ function NavBar() {
 
 					</li>
 					<li className="nav-item dropdown">
-						<Link to='' className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<Link to='#' className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<FaListUl /> Categorías
 						</Link>
 
